@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="PepinoDB" Class="PepinoDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\PepinoDB.mdf;Integrated Security=True;Connect Timeout=30" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="PepinoDBConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Agricultor" Member="Agricultors">
+    <Type Name="Agricultor">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Población" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CP" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Agricultor_Pepino" Member="Pepinos" ThisKey="Id" OtherKey="AgricultorId" Type="Pepino" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Usuario" Member="Usuarios">
+    <Type Name="Usuario">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Nickname" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Usuario_PepinoUsuario" Member="PepinoUsuarios" ThisKey="Id" OtherKey="UsuarioId" Type="PepinoUsuario" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PepinoUsuario" Member="PepinoUsuarios">
+    <Type Name="PepinoUsuario">
+      <Column Name="PepinoId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UsuarioId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Usuario_PepinoUsuario" Member="Usuario" ThisKey="UsuarioId" OtherKey="Id" Type="Usuario" IsForeignKey="true" />
+      <Association Name="Pepino_PepinoUsuario" Member="Pepino" ThisKey="PepinoId" OtherKey="Id" Type="Pepino" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Pepino" Member="Pepinos">
+    <Type Name="Pepino">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Longitud" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Peso" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="AgricultorId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Pepino_PepinoUsuario" Member="PepinoUsuarios" ThisKey="Id" OtherKey="PepinoId" Type="PepinoUsuario" />
+      <Association Name="Agricultor_Pepino" Member="Agricultor" ThisKey="AgricultorId" OtherKey="Id" Type="Agricultor" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

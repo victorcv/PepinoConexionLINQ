@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Pepino">
+  <DataContextMoniker Name="/PepinoDataContext" />
+  <nestedChildShapes>
+    <classShape Id="b50934b5-b367-4bc7-8a63-5c2a653fd987" absoluteBounds="1.375, 2.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/PepinoDataContext/Agricultor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1dfaf195-88d3-4c45-9f21-d894d295299d" absoluteBounds="1.3900000000000001, 2.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1bbbefd1-3942-4834-a82a-dd73ea81e212" absoluteBounds="7, 4.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/PepinoDataContext/Usuario" />
+      <nestedChildShapes>
+        <elementListCompartment Id="44c9195d-8a7c-4c99-9e02-543c80580fef" absoluteBounds="7.0150000000000006, 5.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="87d63836-7087-4073-bd11-cf6aac96ddfa" absoluteBounds="7.75, 2.625, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/PepinoDataContext/PepinoUsuario" />
+      <nestedChildShapes>
+        <elementListCompartment Id="021c87bc-32f1-4560-b40c-41dde7945f76" absoluteBounds="7.7650000000000006, 3.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.375 : 4.875); (8.375 : 3.81899251302083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/PepinoDataContext/Usuario/Usuario_PepinoUsuario" />
+      <nodes>
+        <classShapeMoniker Id="1bbbefd1-3942-4834-a82a-dd73ea81e212" />
+        <classShapeMoniker Id="87d63836-7087-4073-bd11-cf6aac96ddfa" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="0432b3d6-8903-41d8-95fb-cca3b3ab66eb" absoluteBounds="4.5, 2.375, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/PepinoDataContext/Pepino" />
+      <nestedChildShapes>
+        <elementListCompartment Id="98ddd987-66f0-485c-8e24-a4d370974744" absoluteBounds="4.515, 2.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.5 : 3.22199625651042); (7.75 : 3.22199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PepinoDataContext/Pepino/Pepino_PepinoUsuario" />
+      <nodes>
+        <classShapeMoniker Id="0432b3d6-8903-41d8-95fb-cca3b3ab66eb" />
+        <classShapeMoniker Id="87d63836-7087-4073-bd11-cf6aac96ddfa" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.375 : 3.28929768880208); (4.5 : 3.28929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PepinoDataContext/Agricultor/Agricultor_Pepino" />
+      <nodes>
+        <classShapeMoniker Id="b50934b5-b367-4bc7-8a63-5c2a653fd987" />
+        <classShapeMoniker Id="0432b3d6-8903-41d8-95fb-cca3b3ab66eb" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
